@@ -18,8 +18,7 @@
         
         #musicBtn { width: 65px; height: 65px; border-radius: 50%; border: 2px solid #fff; background: rgba(255,255,255,0.2); color: #fff; font-size: 1.5rem; cursor: pointer; backdrop-filter: blur(5px); margin-top: 20px; }
 
-        /* Կոմպակտ Թայմեր */
-        .timer-wrap { display: flex; gap: 8px; justify-content: center; width: 100%; }
+        .timer-wrap { display: flex; gap: 8px; justify-content: center; width: 100%; margin-top: 20px; }
         .t-box { background: #f8f8f8; padding: 12px 5px; border-radius: 12px; flex: 1; max-width: 75px; border: 1px solid #eee; }
         .t-num { font-size: 1.6rem; font-weight: 700; display: block; color: #000; }
         .t-lab { font-size: 0.75rem; color: #666; }
@@ -30,8 +29,8 @@
 </head>
 <body>
     <section class="section hero">
-        <div class="main-date">27.07.26</div>
-        <h1 class="names-title">Հայկ & Լիկա</h1>
+        <div class="main-date" data-aos="fade-down">27.07.26</div>
+        <h1 class="names-title" data-aos="zoom-in">Հայկ & Լիկա</h1>
         <button id="musicBtn" onclick="toggleMusic()"><i class="fas fa-play" id="icon"></i></button>
         <audio id="bgMusic" src="music.mp3" loop></audio>
     </section>
@@ -56,6 +55,10 @@
         #scrollHeart { position: absolute; width: 28px; fill: #000; top: 0; left: 0; z-index: 10; transition: transform 0.1s linear; }
         .line-svg { width: 100%; height: 100%; }
         .event { position: absolute; width: 130px; font-size: 0.95rem; color: #000; font-weight: 500; }
+
+        .card { width: 100%; max-width: 450px; margin-bottom: 40px; padding: 0 10px; box-sizing: border-box; }
+        .card img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .btn-map { display: inline-block; padding: 14px 45px; background: #000; color: #fff; text-decoration: none; border-radius: 30px; margin-top: 15px; font-weight: 700; font-size: 1rem; border: none; }
     </style>
 
     <section class="section">
@@ -81,20 +84,19 @@
             <div class="event" style="top: 610px; right: 10px; text-align: left;"><b>17:30</b><br>Ռեստորան</div>
         </div>
     </section>
-    <style>
-        .card { width: 100%; max-width: 450px; margin-bottom: 40px; padding: 0 10px; box-sizing: border-box; }
-        .card img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .btn-map { display: inline-block; padding: 14px 45px; background: #000; color: #fff; text-decoration: none; border-radius: 30px; margin-top: 15px; font-weight: 700; font-size: 1rem; }
-        
-        .rsvp-box { background: #fff; padding: 35px 20px; border-radius: 25px; width: 100%; max-width: 400px; border: 1.5px solid #f0f0f0; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin: 0 auto; }
-        .rsvp-box input, .rsvp-box select { width: 100%; padding: 15px; margin: 10px 0; border: 1.5px solid #ddd; border-radius: 10px; font-size: 1rem; box-sizing: border-box; -webkit-appearance: none; }
-    </style>
 
     <section class="section">
         <h2 class="main-text" style="font-size: 2.2rem;">Հասցեներ</h2>
         <div class="card" data-aos="zoom-in"><img src="church.jpg"><h3>Դեղերի Վանք</h3><a href="#" class="btn-map">ՔԱՐՏԵԶ</a></div>
         <div class="card" data-aos="zoom-in"><img src="restaurant.jpg"><h3>Nor Dvin</h3><a href="#" class="btn-map">ՔԱՐՏԵԶ</a></div>
     </section>
+    <style>
+        .rsvp-box { background: #fff; padding: 40px 20px; border-radius: 30px; width: 90%; max-width: 400px; border: 1.5px solid #f2f2f2; box-shadow: 0 8px 25px rgba(0,0,0,0.05); margin: 0 auto; }
+        .rsvp-box h2 { font-family: 'Dancing Script', cursive; font-size: 3.8rem; margin: 0 0 10px 0; color: #000; }
+        .rsvp-form { display: flex; flex-direction: column; align-items: center; }
+        .rsvp-form input, .rsvp-form select { width: 100%; padding: 16px; margin: 8px 0; border: 1.2px solid #ccc; border-radius: 12px; font-size: 1rem; box-sizing: border-box; background-color: #fff; color: #000; }
+        .radio-group { display: flex; justify-content: space-around; width: 100%; margin: 10px 0; }
+    </style>
 
     <section class="section" data-aos="fade-up">
         <img src="couple2.jpg" style="width:100%; max-width:450px; border-radius:25px;">
@@ -110,15 +112,23 @@
     <section class="section">
         <img src="couple3.jpg" style="width:100%; max-width:450px; border-radius:25px; margin-bottom: 30px;" data-aos="fade-up">
         <div class="rsvp-box" data-aos="fade-up">
-            <h2 style="font-family: 'Dancing Script', cursive; font-size: 3.5rem; margin: 0;">RSVP</h2>
-            <p style="font-weight: 700; margin-bottom: 20px; font-size: 0.9rem;">Խնդրում ենք հաստատել մինչև Հունիսի 26-ը</p>
-            <form>
+            <h2>RSVP</h2>
+            <p style="font-weight: 700; margin-bottom: 25px; font-size: 0.95rem;">Խնդրում ենք հաստատել մինչև Հունիսի 26-ը</p>
+            <form class="rsvp-form">
                 <input type="text" placeholder="Անուն Ազգանուն" required>
-                <select required><option value="">Կկարողանա՞ք մասնակցել</option><option>Այո, սիրով կմասնակցեմ</option><option>Ոչ, ցավոք չեմ կարողանա</option></select>
-                <p style="text-align: left; font-weight: 700; margin: 15px 0 5px; font-size: 1rem;">Ու՞մ կողմից եք</p>
-                <div style="display: flex; justify-content: space-around; margin-bottom: 15px;"><label><input type="radio" name="side" required> Հայկի</label><label><input type="radio" name="side"> Լիկայի</label></div>
-                <input type="number" placeholder="Հյուրերի քանակ"><input type="text" placeholder="Մեկնաբանություն">
-                <button type="submit" class="btn-map" style="width: 100%; border: none; cursor: pointer;">ՊԱՏԱՍԽԱՆԵԼ</button>
+                <select required>
+                    <option value="">Կկարողանա՞ք մասնակցել</option>
+                    <option>Այո, սիրով կմասնակցեմ</option>
+                    <option>Ոչ, ցավոք չեմ կարողանա</option>
+                </select>
+                <div style="width: 100%; text-align: left; margin: 15px 0 5px;"><span style="font-weight: 700;">Ու՞մ կողմից եք</span></div>
+                <div class="radio-group">
+                    <label><input type="radio" name="side" required> Հայկի</label>
+                    <label><input type="radio" name="side"> Լիկայի</label>
+                </div>
+                <input type="number" placeholder="Հյուրերի քանակ">
+                <input type="text" placeholder="Մեկնաբանություն">
+                <button type="submit" class="btn-map" style="width: 100%;">ՊԱՏԱՍԽԱՆԵԼ</button>
             </form>
         </div>
     </section>
@@ -130,24 +140,14 @@
             const a = document.getElementById('bgMusic'), i = document.getElementById('icon');
             if (a.paused) { a.play(); i.className = 'fas fa-pause'; } else { a.pause(); i.className = 'fas fa-play'; }
         }
-        
         window.addEventListener('scroll', () => {
-            const container = document.getElementById('roadContainer');
-            const heart = document.getElementById('scrollHeart');
-            const path = document.getElementById('motionPath');
-            const rect = container.getBoundingClientRect();
-            
-            // Հաշվարկում ենք տոկոսը՝ հիմնվելով էկրանի կենտրոնի վրա
+            const container = document.getElementById('roadContainer'), heart = document.getElementById('scrollHeart');
+            const path = document.getElementById('motionPath'), rect = container.getBoundingClientRect();
             let scrollPercent = (window.innerHeight / 2 - rect.top) / rect.height;
             scrollPercent = Math.max(0, Math.min(1, scrollPercent));
-            
-            const length = path.getTotalLength();
-            const point = path.getPointAtLength(scrollPercent * length);
-            
-            heart.style.left = (point.x - 14) + 'px';
-            heart.style.top = (point.y - 14) + 'px';
+            const length = path.getTotalLength(), point = path.getPointAtLength(scrollPercent * length);
+            heart.style.left = (point.x - 14) + 'px'; heart.style.top = (point.y - 14) + 'px';
         });
-
         const dDate = new Date("July 27, 2026 11:00:00").getTime();
         setInterval(() => {
             const n = new Date().getTime(), diff = dDate - n;
@@ -159,3 +159,4 @@
     </script>
 </body>
 </html>
+    
